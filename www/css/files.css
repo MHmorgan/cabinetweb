@@ -1,0 +1,125 @@
+
+main > section {
+  display: none;
+}
+
+#file-header {
+  display: inline-block;
+  margin-bottom: 1em;
+}
+
+#file-path {
+  color: gray;
+  margin-bottom: 0;
+  text-align: right;
+}
+
+#file-name {
+  margin-top: 0;
+}
+
+.text-container {
+  border-style: solid;
+  border-width: 1px;
+  border-top-width: 0;
+  /* border-radius: 10px; */
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  padding: 0;
+}
+
+.raw-text-container {
+  padding: 1em 2em;
+  margin: 0;
+}
+
+
+/*******************************************************************************
+ *                                                                             *
+ * Close button
+ *                                                                             *
+ *******************************************************************************/
+
+#close-btn {
+  float: right;
+}
+
+#close-btn::before {
+  font-family: "Material Icons Outlined";
+  font-size: 2em;
+  content: '\e5cd';
+  cursor: pointer;
+}
+
+#close-btn:hover {
+  font-weight: bold;
+}
+
+#close-btn:active {
+  transform: translate(3px, 2px);
+}
+
+
+/*******************************************************************************
+ *                                                                             *
+ * File content style menu 
+ *                                                                             *
+ *******************************************************************************/
+
+#style-menu {
+  background-color: var(--bg-primary);
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+#style-menu li {
+  color: white;
+  display: inline;
+  padding: 2px 1em;
+  cursor: pointer;
+}
+
+#style-menu li:first-child {
+  border-top-left-radius: 15px;
+}
+
+#style-menu li[active] {
+  background-color: white;
+  color: black;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * Code styling
+ *                                                                             *
+ *******************************************************************************/
+
+.code-text-container {
+  counter-reset: line;
+  padding: 0;
+  margin: 0;
+}
+
+.code-text-container span {
+  font-family: monospace !important;
+  display: inline-block;
+  width: 100%;
+}
+
+.code-text-container span:nth-of-type(even) {
+  background-color: var(--bg-secondary);
+}
+
+.code-text-container span::before {
+  counter-increment: line;
+  content: counter(line);
+  color: gray;
+  display: inline-block;
+  padding-left: 4px;
+  padding-right: 1em;
+  width: 4em;
+  text-align: right;
+}

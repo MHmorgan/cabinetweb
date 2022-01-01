@@ -1,0 +1,34 @@
+
+.statistic {
+  text-align: center;
+  padding: 2em;
+  width: 200px;
+}
+
+.statistic:first-child {
+  border-right: solid 1px;
+}
+
+#actions a {
+  border: solid 1px;
+  color: var(--primary);
+  cursor: pointer !important;
+  margin: 10px;
+  padding: 2em;
+  text-align: center;
+  text-decoration: none;
+  transition-duration: 100ms;
+  transition-property: color, background-color, box-shadow;
+  min-width: 230px;
+  height: 90px;
+}
+
+#actions a:hover, #actions a:active {
+  color: var(--secondary);
+  border-color: var(--secondary);
+  background-color: var(--bg-secondary);
+}
+
+#actions a:active {
+  border-width: 2px;
+}

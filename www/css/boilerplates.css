@@ -1,0 +1,54 @@
+
+#boilerplate-header {
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+table {
+    --middle-spacing: 6px;
+    margin: 0 auto;
+}
+
+tr:hover {
+    background-color: var(--bg-secondary);
+}
+
+td:first-child, th:first-child {
+    text-align: right;
+    padding-right: var(--middle-spacing);
+    width: 50%;
+}
+
+td:last-child, th:last-child {
+    padding-left: var(--middle-spacing);
+    width: 50%;
+    white-space: nowrap;
+    overflow: auto;
+}
+
+
+/*******************************************************************************
+ *                                                                             *
+ * Close button
+ *                                                                             *
+ *******************************************************************************/
+
+#close-btn {
+    margin: 0 auto;
+    display: inline-block;
+}
+
+#close-btn::before {
+  font-family: "Material Icons Outlined";
+  font-size: 1.5em;
+  content: '\e5c4';
+  cursor: pointer;
+}
+
+#close-btn:hover {
+  font-weight: bold;
+}
+
+#close-btn:active {
+  transform: translate(3px, 2px);
+}

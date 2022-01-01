@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons+Outlined');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+:root {
+  --primary: hsl(120, 100%, 16%);
+  --secondary: hsl(120, 80%, 40%);
+  --bg-primary: hsl(120, 61%, 34%);
+  --bg-secondary: hsl(120, 100%, 97%);
+  --header-font: Bebas Neue, serif;
+}
+
+* {
+  font-family: sans-serif !important;
+  color: var(--primary);
+}
+
+header, footer {
+  background-color: var(--bg-primary);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--header-font) !important;
+}
+
+header > h1, header > p {
+  color: white !important;
+  font-family: var(--header-font) !important;
+  font-weight: bold;
+}
+
+header > h1 {
+  font-size: 3em;
+}
+
+@media only screen and (max-width: 450px) {
+  header > h1 {
+    font-size: 10vw;
+  }
+}
+
+header > p {
+  margin-bottom: 0;
+}
+
+footer {
+  position: sticky;
+  bottom: 0;
+}
+
+
+/*******************************************************************************
+ *
+ * Tree-view
+ *
+ * Required structure:
+ * An unordered list where each list item contains a button and possibly a
+ * subtree (another unordered list).
+ * The buttons can be directory buttons (for expanding further down the tree)
+ * or document buttons (for opening a document from the tree).
+ *
+ * The root tree must have id "tree-view".
+ * Buttons may have either the class "dir-btn" or "file-btn".
+ *
+ *******************************************************************************/
+
+ul.tree-view {
+  list-style-type: none;
+  margin: 0 auto;
+  padding: 0;
+  width: 450px;
+}
+
+ul.tree-view ul {
+  list-style-type: none;
+  margin-left: 1em;
+  padding: 0;
+  display: block;
+}
+
+ul.tree-view button {
+  display: inline-block;
+  text-align: left;
+  width: 100%;
+  padding: 10px 0 10px 8px;
+  margin: 0;
+  border: none;
+  border-bottom: 1px solid var(--bg-primary);
+}
+
+ul.tree-view button:hover {
+  background-color: var(--bg-secondary);
+  border-left-style: solid;
+  border-left-width: 3px;
+}
+
+ul.tree-view button:active {
+  border-left-width: 5px;
+}
+
+ul.tree-view > li:last-of-type > button:only-child {
+  border-bottom: none;
+}
+
+ul.tree-view button {
+  background-color: white;
+}
+
+.dir-btn::before {
+  font-family: "Material Icons Outlined";
+  content: "\e2c7";
+  margin-right: 8px;
+}
+
+.dir-btn:hover::before {
+  content: "\e2c8";
+}
+
+.dir-btn:active::before {
+  font-weight: bold;
+}
+
+.file-btn::before {
+  font-family: "Material Icons Outlined";
+  content: '\e873';
+  margin-right: 8px;
+}
+
+.file-btn:hover::before {
+  content: "\f1ce";
+}
+
+.file-btn:active::before {
+  font-weight: bold;
+}
