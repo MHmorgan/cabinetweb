@@ -48,7 +48,7 @@ class Boilerplate extends TreeElement {
     }
 
     async content() {
-        if (this._content === null) {
+        if (!this._content) {
             const res = await http.get('/boilerplates/' + this.name);
             this._content = JSON.parse(res);
         }

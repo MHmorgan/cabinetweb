@@ -59,7 +59,7 @@ class File extends Entry {
     }
 
     async content() {
-        if (this._content === null) {
+        if (!this._content) {
             this._content = await http.get('/files'+this.path);
         }
         return this._content;
@@ -226,7 +226,7 @@ class Directory extends Entry {
      * fetched from the cabinet server.
      */
     async content() {
-        if (this._content === null) {
+        if (!this._content) {
             await this._fetch_content();
         }
         return this._content;
@@ -236,7 +236,7 @@ class Directory extends Entry {
      * Build and return tree view for this directory.
      */
     async html() {
-        if (this._content === null) {
+        if (!this._content) {
             await this._fetch_content();
         }
         return buildTree(
@@ -271,7 +271,7 @@ class Directory extends Entry {
      * Iterate over the entries of the directory.
      */
     *[Symbol.iterator]() {
-        if (this._content === null) {
+        if (!this._content) {
             throw new Error('Cannot iterate over uninitialized directory content.');
         }
         for (const e of this._content) {

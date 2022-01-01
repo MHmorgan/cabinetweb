@@ -52,12 +52,12 @@ async function buildTree(elements, dir_callback=null, file_callback=null) {
 
         if (e.is_directory()) {
             btn.className = 'dir-btn';
-            if (dir_callback !== null) {
+            if (dir_callback) {
                 btn.onclick = async (ev) => await dir_callback(ev, e, li);
             }
         } else {
             btn.className = 'file-btn';
-            if (file_callback !== null) {
+            if (file_callback) {
                 btn.onclick = async (ev) => await file_callback(ev, e, li);
             }
         }
