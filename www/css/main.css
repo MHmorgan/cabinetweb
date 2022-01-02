@@ -68,7 +68,8 @@ ul.tree-view {
   list-style-type: none;
   margin: 0 auto;
   padding: 0;
-  width: 450px;
+  width: 90%;
+  max-width: 450px;
 }
 
 ul.tree-view ul {
