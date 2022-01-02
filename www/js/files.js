@@ -251,8 +251,8 @@ class Directory extends Entry {
                 // Only build the child directory once.
                 // After that we hide/show the subtree.
                 event.currentTarget.onclick = (ev) => {
-                    const val = ul.style.display;
-                    ul.style.display = val == 'none' ? 'block' : 'none';
+                    const hidden = ul.style.display === 'none';
+                    ul.style.display = hidden ? 'block' : 'none';
                 }
             },
             /*
