@@ -3,8 +3,7 @@
 async function setup() {
     // console.log('Starting boilerplates page setup');
 
-    const res = await http.get('/boilerplates');
-    const boilerplates = JSON.parse(res).map((name) => new Boilerplate(name))
+    const boilerplates = (await cabinet_fetch('/boilerplates')).map((name) => new Boilerplate(name));
     // console.log(boilerplates);
     const bpList = await buildTree(
         boilerplates,
@@ -49,8 +48,7 @@ class Boilerplate extends TreeElement {
 
     async content() {
         if (!this._content) {
-            const res = await http.get('/boilerplates/' + this.name);
-            this._content = JSON.parse(res);
+            this._content = await cabinet_fetch('/boilerplates/' + this.name);
         }
         return this._content;
     }

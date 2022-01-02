@@ -1,34 +1,16 @@
 "use strict";
 
-function delay(milliseconds) {
-    return new Promise(resolve => {
-        setTimeout(resolve, milliseconds);
-    });
-}
-
 /*
- * Wrapper of AJAX HTTP requests with an async interface.
+ * fetch() wrapper handling common fetch setup.
  */
-class Http {
-    constructor(host) {
-        this.host = host;
-    }
-
-    async get(path) {
-        let url = encodeURI(this.host + path);
-        // console.log('Getting ' + url);
-        return new Promise((resolve, reject) => {
-            let req = new XMLHttpRequest();
-            req.onload = function () {
-                resolve(this.responseText);
-            };
-            req.open('GET', url)
-            req.send();
-        });
-    }
+async function cabinet_fetch(path, json=true) {
+    const url = 'https://cabinet.hirth.dev' + path;
+    const resp = await fetch(url, {
+        method: 'GET',
+        mode: 'cors',
+    });
+    return await (json ? resp.json() : resp.text());
 }
-
-const http = new Http('https://cabinet.hirth.dev');
 
 /*
  * Build a partial tree for a tree-view.

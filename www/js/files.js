@@ -60,7 +60,7 @@ class File extends Entry {
 
     async content() {
         if (!this._content) {
-            this._content = await http.get('/files'+this.path);
+            this._content = await cabinet_fetch('/files'+this.path, false);
         }
         return this._content;
     }
@@ -198,8 +198,7 @@ class Directory extends Entry {
      * without waiting for the result.
      */
     async _fetch_content() {
-        const entries_json = await http.get('/dirs'+this.path);
-        const entries = JSON.parse(entries_json);
+        const entries = await cabinet_fetch('/dirs'+this.path);
         if (!Array.isArray(entries)) {
             throw new Error('Server didnt return directory content as an array.');
         }

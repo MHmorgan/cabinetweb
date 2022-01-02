@@ -2,10 +2,7 @@
 
 async function setup() {
     // console.log('Starting index page setup.')
-
-    let stats_str = await http.get('/status');
-    let stats = JSON.parse(stats_str);
-
+    let stats = await cabinet_fetch('/status');
     document.getElementById('fileCount').innerText = stats.files;
     document.getElementById('boilerplateCount').innerText = stats.boilerplates;
 }
