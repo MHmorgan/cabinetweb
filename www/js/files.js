@@ -251,7 +251,7 @@ class Directory extends Entry {
                 // After that we hide/show the subtree.
                 event.currentTarget.onclick = (ev) => {
                     const hidden = ul.style.display === 'none';
-                    ul.style.display = hidden ? 'block' : 'none';
+                    ul.style.display = hidden ? '' : 'none';
                 }
             },
             /*
